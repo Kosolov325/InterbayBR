@@ -1,0 +1,20 @@
+#ignore misc BYOND files
+Thumbs.db
+*.log
+*.int
+*.rsc
+*.dmb
+*.lk
+*.backup
+*.before
+build_log.txt
+use_map
+stopserver
+reboot_called
+atupdate
+__pycache__
+
+# ignore config, but not subdirs
+.atom-build.json
+InterBay.dmb
+*.dmb
