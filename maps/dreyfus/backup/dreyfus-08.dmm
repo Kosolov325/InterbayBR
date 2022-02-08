@@ -636,7 +636,7 @@
 "mu" = (/obj/structure/grille,/obj/structure/window/reinforced{dir = 1; health = 1e+006},/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 8; health = 1e+006},/obj/structure/window/reinforced/full,/obj/machinery/door/blast/regular{density = 0; icon_state = "pdoor0"; id = "skipjackshutters"; name = "Blast Doors"; opacity = 0},/turf/simulated/floor/plating,/area/skipjack_station/start)
 "mC" = (/obj/structure/table/steel,/obj/random/maintenance,/obj/machinery/recharger,/turf/simulated/floor/plating,/area/skipjack_station/start)
 "mD" = (/obj/machinery/floodlight,/turf/simulated/floor/plating,/area/skipjack_station/start)
-"mE" = (/obj/machinery/jukebox,/obj/machinery/floor_light/prebuilt{icon_state = "on"; on = 1},/turf/simulated/floor/plating,/area/skipjack_station/start)
+"mE" = (/obj/machinery/media/jukebox,/obj/machinery/floor_light/prebuilt{icon_state = "on"; on = 1},/turf/simulated/floor/plating,/area/skipjack_station/start)
 "mF" = (/obj/machinery/suit_storage_unit/engineering/salvage,/turf/simulated/floor/plating,/area/skipjack_station/start)
 "mG" = (/obj/random/loot,/turf/simulated/floor/plating,/area/skipjack_station/start)
 "mH" = (/obj/item/robot_parts/head,/obj/effect/landmark/start{name = "Raider"},/turf/simulated/floor/plating,/area/skipjack_station/start)

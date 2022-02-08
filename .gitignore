@@ -18,3 +18,5 @@ __pycache__
 .atom-build.json
 InterBay.dmb
 *.dmb
+
+data/*

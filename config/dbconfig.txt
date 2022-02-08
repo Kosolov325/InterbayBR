@@ -2,24 +2,24 @@
 
 # Server the MySQL database can be found at
 # Examples: localhost, 200.135.5.43, www.mysqldb.com, etc.
-ADDRESS 191.232.166.41
+ADDRESS localhost
 
 # MySQL server port (default is 3306)
 PORT 3306
 
 # Database the population, death, karma, etc. tables may be found in
-DATABASE initial
+DATABASE interbay
 
 # Username/Login used to access the database
 LOGIN root
 
 # Password used to access the database
-PASSWORD ibbr2020
+PASSWORD root
 
 # The following information is for feedback tracking via the blackbox server
-FEEDBACK_DATABASE initial
+FEEDBACK_DATABASE interbay
 FEEDBACK_LOGIN root
-FEEDBACK_PASSWORD ibbr2020
+FEEDBACK_PASSWORD root
 
 # Track population and death statistics
 # Comment this out to disable
