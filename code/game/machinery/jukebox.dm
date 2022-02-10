@@ -1,12 +1,5 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-datum/track
-	var/title
-	var/sound
-
-datum/track/New(var/title_name, var/audio)
-	title = title_name
-	sound = audio
 
 /obj/machinery/media/jukebox
 	name = "space jukebox"
@@ -27,14 +20,14 @@ datum/track/New(var/title_name, var/audio)
 	var/sound_id
 	var/datum/sound_token/sound_token
 
-	var/datum/track/current_track
-	var/list/datum/track/tracks = list(
-		new/datum/track("Song 1", 'sound/jukebox/barsong1.ogg'),
-		new/datum/track("Song 2", 'sound/jukebox/barsong2.ogg'),
-		new/datum/track("Song 3", 'sound/jukebox/barsong3.ogg'),
-		new/datum/track("Song 4", 'sound/jukebox/barsong4.ogg'),
-		new/datum/track("Song 5", 'sound/jukebox/barsong5.ogg'),
-		new/datum/track("Song 6", 'sound/jukebox/barsong6.ogg'),
+	var/decl/audio/current_track
+	var/tracks = list(
+		/decl/audio/track/song1,
+		/decl/audio/track/song2,
+		/decl/audio/track/song3,
+		/decl/audio/track/song4,
+		/decl/audio/track/song5,
+		/decl/audio/track/song6,
 	)
 
 /obj/machinery/media/jukebox/New()
@@ -95,7 +88,7 @@ datum/track/New(var/title_name, var/audio)
 
 /obj/machinery/media/jukebox/ui_data()
 	var/list/juke_tracks = new
-	for(var/datum/track/T in tracks)
+	for(var/decl/audio/track/T in tracks)
 		juke_tracks.Add(T.title)
 
 	var/list/data = list(
@@ -112,7 +105,7 @@ datum/track/New(var/title_name, var/audio)
 		return TRUE
 	switch(action)
 		if("change_track")
-			for(var/datum/track/T in tracks)
+			for(var/decl/audio/track/T in tracks)
 				if(T.title == params["title"])
 					current_track = T
 					StartPlaying()
@@ -206,7 +199,7 @@ datum/track/New(var/title_name, var/audio)
 		return
 
 	// Jukeboxes cheat massively and actually don't share id. This is only done because it's music rather than ambient noise.
-	sound_token = sound_player.PlayLoopingSound(src, sound_id, current_track.sound, volume = volume, range = 7, falloff = 3, prefer_mute = TRUE)
+	sound_token = sound_player.PlayLoopingSound(src, sound_id, current_track.source, volume = volume, range = 7, falloff = 3, prefer_mute = TRUE)
 
 	playing = 1
 	update_use_power(2)
