@@ -5,6 +5,7 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-Wife - HeadDeveloper
-alexalbright - HeadDeveloper
+Wife - Host
+alexalbright - HeadAdmin
 Kosolov325 - Kosolov
+ThuxTK - HeadDeveloper

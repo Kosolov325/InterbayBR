@@ -24,7 +24,7 @@
 
 	//Note that this has a significant impact on TTV yield.
 	//Because it is so high, any leftover phoron soaks up a lot of heat and drops the yield pressure.
-	specific_heat = 200	// J/(mol*K)
+	specific_heat = 100	// J/(mol*K)
 
 	//Hypothetical group 14 (same as carbon), period 8 element.
 	//Using multiplicity rule, it's atomic number is 162

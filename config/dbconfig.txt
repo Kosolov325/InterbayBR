@@ -11,15 +11,15 @@ PORT 3306
 DATABASE interbay
 
 # Username/Login used to access the database
-LOGIN root
+LOGIN admin
 
 # Password used to access the database
-PASSWORD root
+PASSWORD 1212
 
 # The following information is for feedback tracking via the blackbox server
-FEEDBACK_DATABASE interbay
-FEEDBACK_LOGIN root
-FEEDBACK_PASSWORD root
+#FEEDBACK_DATABASE interbay
+#FEEDBACK_LOGIN admin
+#FEEDBACK_PASSWORD 1212
 
 # Track population and death statistics
 # Comment this out to disable
