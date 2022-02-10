@@ -1,5 +1,5 @@
 ## Server name: This appears at the top of the screen in-game. In this case it will read "tgstation: station_name" where station_name is the randomly generated name of the station for the round. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice
-SERVERNAME Boate station Interbay | Interzone | Hard
+SERVERNAME Boate station Interbay | Brzone | Hard
 
 ## Alert levels
 ALERT_GREEN All threats to the station have passed. Security may not have weapons visible, privacy laws are once again fully enforced.
@@ -163,7 +163,7 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 DEFAULT_NO_VOTE
 
 ## Allow ghosts to see antagonist through AntagHUD
-#ALLOW_ANTAG_HUD
+ALLOW_ANTAG_HUD
 
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 #ANTAG_HUD_RESTRICTED
@@ -204,16 +204,16 @@ SERVER 191.232.166.41:2505
 #SERVERURL server.net:port
 
 ## forum address
-FORUMURL https://discord.gg/ae5AeMR
+FORUMURL https://discord.gg/hvHjwnbhcH
 
 ## Wiki address
-WIKIURL https://discord.gg/ae5AeMR
+WIKIURL https://discord.gg/hvHjwnbhcH
 
 ## GitHub address
-GITHUBURL https://github.com/thuxtk/LiteWeb
+GITHUBURL https://github.com/Kosolov325/InterbayBR
 
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
-BANAPPEALS https://discord.gg/ae5AeMR
+BANAPPEALS https://discord.gg/hvHjwnbhcH
 
 ## In-game features
 ## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -233,7 +233,7 @@ POPUP_ADMIN_PM
 ALLOW_HOLIDAYS
 
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.4
+TICKLAG 0.5
 
 ##Defines world FPS. Defaults to 20.
 FPS 30
@@ -376,8 +376,6 @@ STARLIGHT 0
 
 ## Enable asteroid tunnel/cave generation. Will behave strangely if turned off with a map that expects it on.
 GENERATE_ASTEROID
-
-
 
 ## Uncomment to enable organ decay outside of a body or storage item.
 ORGANS_CAN_DECAY
