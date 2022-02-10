@@ -206,8 +206,7 @@ datum/track/New(var/title_name, var/audio)
 		return
 
 	// Jukeboxes cheat massively and actually don't share id. This is only done because it's music rather than ambient noise.
-	// It also has the "ignore_vis" flag so it can be heard through walls and zlevels
-	sound_token = sound_player.PlayLoopingSound(src, sound_id, current_track.sound, volume = volume, range = 14, falloff = 3, prefer_mute = TRUE, ignore_vis = TRUE)
+	sound_token = sound_player.PlayLoopingSound(src, sound_id, current_track.sound, volume = volume, range = 7, falloff = 3, prefer_mute = TRUE)
 
 	playing = 1
 	update_use_power(2)
