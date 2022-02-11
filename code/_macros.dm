@@ -3,6 +3,8 @@
 #define Clamp(value, low, high) 	(value <= low ? low : (value >= high ? high : value))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
+#define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
+
 #define get_turf(A) get_step(A,0)
 
 #define isAI(A) istype(A, /mob/living/silicon/ai)
@@ -122,6 +124,7 @@
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= L.len ? L[I] : null) : L[I]) : null)
 // Reads the length of L, returning 0 if null
 #define LAZYLEN(L) length(L)
+#define LAZYSET(L, A, I) if(!L) { L = list(); } L[A] = I;
 // Null-safe L.Cut()
 #define LAZYCLEARLIST(L) if(L) L.Cut()
 // Reads L or an empty list if L is not a list.  Note: Does NOT assign, L may be an expression.
@@ -130,3 +133,11 @@
 //Currently used in SDQL2 stuff
 #define send_output(target, msg, control) target << output(msg, control)
 #define send_link(target, url) target << link(url)
+
+#define SHIFTR(INT, BITS) ((INT) >> (BITS))
+
+/// Left-shift of INT by BITS
+#define SHIFTL(INT, BITS) ((INT) << (BITS))
+
+/// Convenience define for nth-bit flags, 0-indexed
+#define FLAG(BIT) SHIFTL(1, BIT)

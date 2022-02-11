@@ -63,6 +63,9 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 			init_subtypes(/datum/controller/subsystem, subsystems)
 		Master = src
 
+	if(!GLOB)
+		new /datum/controller/global_vars
+
 /datum/controller/master/Destroy()
 	..()
 	// Tell qdel() to Del() this object.
