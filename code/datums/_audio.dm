@@ -14,10 +14,6 @@
 /decl/audio/track
 
 
-/decl/audio/New()
-	. = ..()
-
-
 /decl/audio/VV_static()
 	return ..() + vars
 

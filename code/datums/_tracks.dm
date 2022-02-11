@@ -1,3 +1,16 @@
+GLOBAL_LIST_INIT(all_tracks, list(
+	new /decl/audio/track/song1,
+	new /decl/audio/track/song2,
+	new /decl/audio/track/song3,
+	new /decl/audio/track/song4,
+	new /decl/audio/track/song5,
+	new /decl/audio/track/song6
+))
+
+/decl/audio/track/custom/New(var/path, var/title_name)
+	source = path
+	title  = title_name
+
 /decl/audio/track/song1
 	source = 'sound/jukebox/barsong1.ogg'
 	title = "Song1"

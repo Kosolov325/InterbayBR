@@ -1,6 +1,4 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
-
 /obj/machinery/media/jukebox
 	name = "space jukebox"
 	icon = 'icons/obj/jukebox.dmi'
@@ -16,19 +14,12 @@
 
 	var/playing = 0
 	var/volume = 20
+	var/custom = 0
 
 	var/sound_id
 	var/datum/sound_token/sound_token
 
 	var/decl/audio/current_track
-	var/tracks = list(
-		/decl/audio/track/song1,
-		/decl/audio/track/song2,
-		/decl/audio/track/song3,
-		/decl/audio/track/song4,
-		/decl/audio/track/song5,
-		/decl/audio/track/song6,
-	)
 
 /obj/machinery/media/jukebox/New()
 	..()
@@ -88,14 +79,15 @@
 
 /obj/machinery/media/jukebox/ui_data()
 	var/list/juke_tracks = new
-	for(var/decl/audio/track/T in tracks)
+	for(var/decl/audio/track/T in GLOB.all_tracks)
 		juke_tracks.Add(T.title)
 
 	var/list/data = list(
 		"current_track" = current_track != null ? current_track.title : "No track selected",
 		"playing" = playing,
 		"tracks" = juke_tracks,
-		"volume" = volume
+		"volume" = volume,
+		"custom" = custom
 	)
 
 	return data
@@ -105,12 +97,22 @@
 		return TRUE
 	switch(action)
 		if("change_track")
-			for(var/decl/audio/track/T in tracks)
+			for(var/decl/audio/track/T in GLOB.all_tracks)
 				if(T.title == params["title"])
 					current_track = T
 					StartPlaying()
+					custom = 0
 					break
 			. = TRUE
+		if("change_track_custom")
+			var/upload = input("Select a song from your computer to play", "Upload song") as null|sound
+			if (isnull(upload))
+				custom = 0
+			else
+				current_track = new /decl/audio/track/custom(upload, "[upload]")
+				StartPlaying()
+				custom = 1
+				. = TRUE
 		if("stop")
 			StopPlaying()
 			. = TRUE
@@ -199,13 +201,13 @@
 		return
 
 	// Jukeboxes cheat massively and actually don't share id. This is only done because it's music rather than ambient noise.
-	sound_token = sound_player.PlayLoopingSound(src, sound_id, current_track.source, volume = volume, range = 7, falloff = 3, prefer_mute = TRUE)
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, current_track.source, volume = volume, range = 7, falloff = 3, frequency = 1, prefer_mute = TRUE)
 
 	playing = 1
 	update_use_power(2)
 	update_icon()
 
 /obj/machinery/media/jukebox/proc/AdjustVolume(var/new_volume)
-	volume = Clamp(new_volume, 0, 50)
+	volume = Clamp(new_volume, 0, 100)
 	if(sound_token)
 		sound_token.SetVolume(volume)
