@@ -1,63 +1,63 @@
 macro "borghotkeymode"
 	elem 
-		name = "TAB"
+		name = "Tab"
 		command = ".winset \"mainwindow.macro=borgmacro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5\""
 	elem 
-		name = "CENTER+REP"
+		name = "Center+REP"
 		command = ".center"
 	elem 
-		name = "NORTHEAST"
+		name = "Northeast"
 		command = ".northeast"
 	elem 
-		name = "SOUTHEAST"
+		name = "Southeast"
 		command = ".southeast"
 	elem 
-		name = "SOUTHWEST"
+		name = "Southwest"
 		command = ".southwest"
 	elem 
-		name = "NORTHWEST"
+		name = "Northwest"
 		command = ".northwest"
 	elem 
-		name = "ALT+WEST"
+		name = "ALT+West"
 		command = "westfaceperm"
 	elem 
-		name = "CTRL+WEST"
+		name = "CTRL+West"
 		command = "westface"
 	elem 
-		name = "WEST+REP"
+		name = "West+REP"
 		command = ".west"
 	elem 
-		name = "ALT+NORTH"
+		name = "ALT+North"
 		command = "northfaceperm"
 	elem 
-		name = "CTRL+NORTH"
+		name = "CTRL+North"
 		command = "northface"
 	elem 
-		name = "NORTH+REP"
+		name = "North+REP"
 		command = ".north"
 	elem 
-		name = "ALT+EAST"
+		name = "ALT+East"
 		command = "eastfaceperm"
 	elem 
-		name = "CTRL+EAST"
+		name = "CTRL+East"
 		command = "eastface"
 	elem 
-		name = "EAST+REP"
+		name = "East+REP"
 		command = ".east"
 	elem 
-		name = "ALT+SOUTH"
+		name = "ALT+South"
 		command = "southfaceperm"
 	elem 
-		name = "CTRL+SOUTH"
+		name = "CTRL+South"
 		command = "southface"
 	elem 
-		name = "SOUTH+REP"
+		name = "South+REP"
 		command = ".south"
 	elem 
-		name = "INSERT"
+		name = "Insert"
 		command = "a-intent right"
 	elem 
-		name = "DELETE"
+		name = "Delete"
 		command = "delete-key-pressed"
 	elem 
 		name = "1"
@@ -201,7 +201,7 @@ macro "borghotkeymode"
 macro "macro"
 	elem 
 		name = "Tab"
-		command = ".winset \".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.focus=false input.background-color=#8A7F7F\""
+		command = ".winset \"mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.focus=true input.background-color=#8A7F7F\""
 	elem 
 		name = "Center+REP"
 		command = ".center"
@@ -350,7 +350,7 @@ macro "macro"
 macro "hotkeymode"
 	elem 
 		name = "Tab"
-		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true\""
+		command = ".winset \"mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=false input.background-color=#d3b5b\""
 	elem 
 		name = "Center+REP"
 		command = ".center"
@@ -443,7 +443,6 @@ macro "hotkeymode"
 		command = ".west"
 	elem 
 		name = "B"
-		command = ".rest"
 	elem 
 		name = "D+REP"
 		command = ".east"
@@ -470,7 +469,7 @@ macro "hotkeymode"
 		command = "a-intent right"
 	elem 
 		name = "H"
-		command = ".resist"
+		command = "resist"
 	elem 
 		name = "CTRL+H"
 		command = "holster"
@@ -564,64 +563,64 @@ macro "hotkeymode"
 
 macro "borgmacro"
 	elem 
-		name = "TAB"
+		name = "Tab"
 		command = ".winset \"mainwindow.macro=borghotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true input.background-color=#F0F0F0\""
 	elem 
-		name = "CENTER+REP"
+		name = "Center+REP"
 		command = ".center"
 	elem 
-		name = "NORTHEAST"
+		name = "Northeast"
 		command = ".northeast"
 	elem 
-		name = "SOUTHEAST"
+		name = "Southeast"
 		command = ".southeast"
 	elem 
-		name = "SOUTHWEST"
+		name = "Southwest"
 		command = ".southwest"
 	elem 
-		name = "NORTHWEST"
+		name = "Northwest"
 		command = ".northwest"
 	elem 
-		name = "ALT+WEST"
+		name = "ALT+West"
 		command = "westfaceperm"
 	elem 
-		name = "CTRL+WEST"
+		name = "CTRL+West"
 		command = "westface"
 	elem 
-		name = "WEST+REP"
+		name = "West+REP"
 		command = ".west"
 	elem 
-		name = "ALT+NORTH"
+		name = "ALT+North"
 		command = "northfaceperm"
 	elem 
-		name = "CTRL+NORTH"
+		name = "CTRL+North"
 		command = "northface"
 	elem 
-		name = "NORTH+REP"
+		name = "North+REP"
 		command = ".north"
 	elem 
-		name = "ALT+EAST"
+		name = "ALT+East"
 		command = "eastfaceperm"
 	elem 
-		name = "CTRL+EAST"
+		name = "CTRL+East"
 		command = "eastface"
 	elem 
-		name = "EAST+REP"
+		name = "East+REP"
 		command = ".east"
 	elem 
-		name = "ALT+SOUTH"
+		name = "ALT+South"
 		command = "southfaceperm"
 	elem 
-		name = "CTRL+SOUTH"
+		name = "CTRL+South"
 		command = "southface"
 	elem 
-		name = "SOUTH+REP"
+		name = "South+REP"
 		command = ".south"
 	elem 
-		name = "INSERT"
+		name = "Insert"
 		command = "a-intent right"
 	elem 
-		name = "DELETE"
+		name = "Delete"
 		command = "delete-key-pressed"
 	elem 
 		name = "CTRL+1"
