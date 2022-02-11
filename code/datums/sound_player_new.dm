@@ -1,4 +1,4 @@
-var/decl/sound_player/sound_player = new()
+GLOBAL_DATUM_INIT(sound_player, /decl/sound_player, new)
 
 /*
 	A sound player/manager for looping 3D sound effects.
@@ -15,11 +15,9 @@ var/decl/sound_player/sound_player = new()
 /decl/sound_player
 	var/list/taken_channels // taken_channels and source_id_uses can be merged into one but would then require a meta-object to store the different values I desire.
 	var/list/sound_tokens_by_sound_id
-	var/datum/stack/available_channels
 
 /decl/sound_player/New()
 	..()
-	available_channels = new()
 	taken_channels = list()
 	sound_tokens_by_sound_id = list()
 
@@ -51,7 +49,7 @@ var/decl/sound_player/sound_player = new()
 	if(length(sound_tokens))
 		return
 
-	available_channels.Push(channel)
+	GLOB.sound_channels.ReleaseChannel(channel)
 	taken_channels -= sound_id
 	sound_tokens_by_sound_id -= sound_id
 
@@ -60,7 +58,7 @@ var/decl/sound_player/sound_player = new()
 
 	. = taken_channels[sound_id] // Does this sound_id already have an assigned channel?
 	if(!.) // If not, request a new one.
-		. = available_channels.Pop()
+		. = GLOB.sound_channels.RequestChannel(sound_id)
 		if(!.) // Oh no, still no channel. Abort
 			return
 		taken_channels[sound_id] = .
@@ -70,6 +68,8 @@ var/decl/sound_player/sound_player = new()
 		sound_tokens = list()
 		sound_tokens_by_sound_id[sound_id] = sound_tokens
 	sound_tokens += sound_token
+
+#define SOUND_STOPPED FLAG(15)
 
 /*
 	Outwardly this is a merely a toke/little helper that a user utilize to adjust sounds as desired (and possible).
@@ -84,7 +84,6 @@ var/decl/sound_player/sound_player = new()
 	var/sound_id       // The associated sound id, used for cleanup
 	var/status = 0     // Paused, muted, running? Global for all listeners
 	var/listener_status// Paused, muted, running? Specific for the given listener.
-	var/const/SOUND_STOPPED = 0x8000
 
 	var/datum/proximity_trigger/square/proxy_listener
 	var/list/can_be_heard_from
@@ -107,7 +106,7 @@ var/decl/sound_player/sound_player = new()
 	src.sound_id    = sound_id
 
 	if(sound.repeat) // Non-looping sounds may not reserve a sound channel due to the risk of not hearing when someone forgets to stop the token
-		var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
+		var/channel = GLOB.sound_player.PrivGetChannel(src) //Attempt to find a channel
 		if(!isnum(channel))
 			CRASH("All available sound channels are in active use.")
 		sound.channel = channel
@@ -117,7 +116,7 @@ var/decl/sound_player/sound_player = new()
 	listeners = list()
 	listener_status = list()
 
-	destroyed_event.register(source, src, /datum/sound_token/proc/Stop)
+	destroyed_event.register(source, src, /datum/proc/qdel_self)
 
 	if(ismovable(source))
 		proxy_listener = new(source, /datum/sound_token/proc/PrivAddListener, /datum/sound_token/proc/PrivLocateListeners, range, proc_owner = src)
@@ -158,11 +157,11 @@ datum/sound_token/proc/Mute()
 	listeners = null
 	listener_status = null
 
-	destroyed_event.unregister(source, src, /datum/sound_token/proc/Stop)
+	destroyed_event.unregister(source, src, /datum/proc/qdel_self)
 	qdel_null(proxy_listener)
 	source = null
 
-	sound_player.PrivStopSound(src)
+	GLOB.sound_player.PrivStopSound(src)
 
 /datum/sound_token/proc/PrivLocateListeners(var/list/prior_turfs, var/list/current_turfs)
 	if(status & SOUND_STOPPED)
@@ -269,4 +268,4 @@ datum/sound_token/proc/PrivAddListener(var/atom/listener)
 
 /obj/sound_test/New()
 	..()
-	sound_player.PlayLoopingSound(src, /obj/sound_test, sound, 50, 3)
+	GLOB.sound_player.PlayLoopingSound(src, /obj/sound_test, sound, 50, 3)
