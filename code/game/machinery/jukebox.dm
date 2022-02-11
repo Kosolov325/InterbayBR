@@ -106,7 +106,7 @@
 			. = TRUE
 		if("change_track_custom")
 			var/upload = input("Select a song from your computer to play", "Upload song") as null|sound
-			if (isnull(upload))
+			if (isnull(upload) | length(upload) > 10485760)
 				custom = 0
 			else
 				current_track = new /decl/audio/track/custom(upload, "[upload]")
