@@ -1,5 +1,8 @@
 # MySQL Connection Configuration
 
+# First of all, should SQL be used at all. Unhash next line, if yes
+ENABLED
+
 # Server the MySQL database can be found at
 # Examples: localhost, 200.135.5.43, www.mysqldb.com, etc.
 ADDRESS localhost
@@ -11,16 +14,12 @@ PORT 3306
 DATABASE interbay
 
 # Username/Login used to access the database
-LOGIN admin
+LOGIN root
 
 # Password used to access the database
-PASSWORD 1212
+PASSWORD root
 
 # The following information is for feedback tracking via the blackbox server
-#FEEDBACK_DATABASE interbay
-#FEEDBACK_LOGIN admin
-#FEEDBACK_PASSWORD 1212
-
-# Track population and death statistics
-# Comment this out to disable
-#ENABLE_STAT_TRACKING
+FEEDBACK_DATABASE interbay
+FEEDBACK_LOGIN root
+FEEDBACK_PASSWORD root
