@@ -393,10 +393,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	set hidden = 1
 
 	if(ishuman(src) || isbrain(src) || isslime(src))
-		switch(input)
-			if("fixeye")
-				var/obj/screen/S = src.fixeye
-				S.Click()
+		src.hotkey.name = input
+		src.hotkey.Click()
+
 
 //change a mob's act-intent. Input the intent as a string such as "help" or use "right"/"left
 /mob/verb/a_intent_change(input as text)

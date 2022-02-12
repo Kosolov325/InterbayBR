@@ -280,7 +280,7 @@
 	mymob.noise.name = " "
 	mymob.noise.screen_loc = "1,1 to 15,15"
 	mymob.noise.mouse_opacity = 0
-	hud_elements |= mymob.noise 
+	hud_elements |= mymob.noise
 
 
 	mymob.zone_sel = new /obj/screen/zone_sel( null )

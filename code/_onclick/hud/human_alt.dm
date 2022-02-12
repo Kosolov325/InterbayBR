@@ -294,6 +294,7 @@
 		mymob.rest.icon_state = "rest0"
 
 
+	mymob.hotkey = new /obj/screen()
 
 	mymob.kick_icon = new /obj/screen()
 	mymob.kick_icon.icon = ui_style
