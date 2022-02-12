@@ -355,6 +355,9 @@ macro "hotkeymode"
 		name = "Center+REP"
 		command = ".center"
 	elem 
+		name = "Space"
+		command = "scrn-change wield"
+	elem 
 		name = "Northeast"
 		command = "Move-Upwards"
 	elem 
@@ -442,6 +445,12 @@ macro "hotkeymode"
 		name = "CTRL+A+REP"
 		command = ".west"
 	elem 
+		name = "B"
+		command = "scrn-change rest"
+	elem 
+		name = "C"
+		command = "scrn-change combat mode"
+	elem 
 		name = "D+REP"
 		command = ".east"
 	elem 
@@ -455,7 +464,7 @@ macro "hotkeymode"
 		command = "quick-equip"
 	elem 
 		name = "F"
-		command = "a-intent left"
+		command = "scrn-change fixeye"
 	elem 
 		name = "CTRL+F"
 		command = "a-intent left"
@@ -473,10 +482,13 @@ macro "hotkeymode"
 		command = "holster"
 	elem 
 		name = "J"
-		command = "toggle-gun-mode"
+		command = "scrn-change jump"
 	elem 
 		name = "CTRL+J"
 		command = "toggle-gun-mode"
+	elem 
+		name = "K"
+		command = "scrn-change kick"
 	elem 
 		name = "Q"
 		command = ".northwest"
@@ -498,6 +510,9 @@ macro "hotkeymode"
 	elem 
 		name = "T"
 		command = ".say"
+	elem 
+		name = "V"
+		command = "scrn-change surrender"
 	elem "w_key"
 		name = "W+REP"
 		command = ".north"
@@ -506,13 +521,13 @@ macro "hotkeymode"
 		command = ".north"
 	elem 
 		name = "X"
-		command = "scrn-change fixeye"
+		command = ".northeast"
 	elem 
 		name = "CTRL+X"
 		command = ".northeast"
 	elem 
 		name = "Y"
-		command = "Activate-Held-Object"
+		command = "scrn-change combat intent"
 	elem 
 		name = "CTRL+Y"
 		command = "Activate-Held-Object"
