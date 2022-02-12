@@ -387,6 +387,17 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 			if(2)			return I_GRAB
 			else			return I_HURT
 
+
+/mob/verb/scrn_change(input as text)
+	set name = "scrn-change"
+	set hidden = 1
+
+	if(ishuman(src) || isbrain(src) || isslime(src))
+		switch(input)
+			if("fixeye")
+				var/obj/screen/S = src.fixeye
+				S.Click()
+
 //change a mob's act-intent. Input the intent as a string such as "help" or use "right"/"left
 /mob/verb/a_intent_change(input as text)
 	set name = "a-intent"

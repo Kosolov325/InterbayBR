@@ -506,7 +506,7 @@ macro "hotkeymode"
 		command = ".north"
 	elem 
 		name = "X"
-		command = ".northeast"
+		command = "scrn-change fixeye"
 	elem 
 		name = "CTRL+X"
 		command = ".northeast"
